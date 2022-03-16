@@ -18,7 +18,7 @@ class Home extends React.Component {
     const { search } = window.location;
     // console.log(pathname);
 
-    const { data } = await axios.get("http://localhost:5000/post" + search);
+    const { data } = await axios.get("/post" + search);
     // console.log(data);
     this.setState({ posts: data });
   }

@@ -12,7 +12,7 @@ import "./Register.css";
 //   const handleSubmit = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const res = await axios.post("http://localhost:5000/auth/register", {
+//       const res = await axios.post("/auth/register", {
 //         username,
 //         email,
 //         password,
@@ -74,7 +74,7 @@ class Register extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/auth/register", {
+      const res = await axios.post("/auth/register", {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,

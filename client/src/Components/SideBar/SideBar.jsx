@@ -12,7 +12,7 @@ class SideBar extends React.Component {
   }
 
   async componentDidMount() {
-    const { data } = await axios.get("http://localhost:5000/cat/");
+    const { data } = await axios.get("/cat/");
     // console.log(data);
     this.setState({ cats: data });
   }

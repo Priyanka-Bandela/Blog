@@ -6,7 +6,7 @@ class Post extends React.Component {
   render() {
     const { photo, title, createdAt, desc, _id, categories } = this.props.post;
     console.log("photo", photo);
-    const PF = "http://localhost:5000/images/";
+    const PF = "/images/";
     return (
       <div className="post">
         {photo && <img className="postImg" src={PF + photo} alt="" />}

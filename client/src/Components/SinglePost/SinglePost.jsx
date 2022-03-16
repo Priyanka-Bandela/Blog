@@ -17,7 +17,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("http://localhost:5000/post/" + path);
+      const res = await axios.get("/post/" + path);
       // console.log(res);
       setPost(res.data);
       setTitle(res.data.title);
@@ -26,11 +26,11 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
-  const PF = "http://localhost:5000/images/";
+  const PF = "/images/";
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/post/${post._id}`, {
+      await axios.delete(`/post/${post._id}`, {
         data: {
           username: user.username,
         },
@@ -41,7 +41,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:5000/post/${post._id}`, {
+      await axios.put(`/post/${post._id}`, {
         username: user.username,
         title,
         desc,
@@ -133,13 +133,13 @@ export default function SinglePost() {
 //     const path = pathname.split("/")[2];
 //     // console.log(pathname.split("/")[2]);
 
-//     const res = await axios.get("http://localhost:5000/post/" + path);
+//     const res = await axios.get("/post/" + path);
 //     // console.log(res);
 //     this.setState({ post: res.data });
 //   }
 
 //   render() {
-//     const PF = "http://localhost:5000/images/";
+//     const PF = "/images/";
 
 //     return (
 //       <div className="singlePost">

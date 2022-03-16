@@ -14,6 +14,9 @@ app.use(cors());
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
+app.use(express.static(path.join(__dirname, "/public")));
+
+var port = process.env.PORT || process.env.portNumber;
 
 mongoose.connect(process.env.dataConnect, () =>
   console.log("connected to mongoose")
@@ -33,11 +36,16 @@ app.post("/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 
+app.get("/", (req, res) => {
+  res.send("dd");
+  //res.sendFile(path.join(__dirname + "./index.html"));
+});
+
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 app.use("/post", postRouter);
 app.use("/cat", catRouter);
 
-app.listen(process.env.portNumber, () =>
-  console.log("server created at https://localhost:" + process.env.portNumber)
+app.listen(port, () =>
+  console.log("server created at https://localhost:" + port)
 );
