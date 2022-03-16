@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(express.static(path.join(__dirname, "/public")));
 
-var port = process.env.PORT || process.env.portNumber;
+var port = process.env.PORT;
 
 mongoose.connect(process.env.dataConnect, () =>
   console.log("connected to mongoose")
@@ -37,8 +37,8 @@ app.post("/upload", upload.single("file"), (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  //res.send("dd");
-  res.sendFile(path.join(__dirname + "./index.html"));
+  res.send("dd");
+  //res.sendFile(path.join(__dirname + "./index.html"));
 });
 
 app.use("/auth", authRouter);
@@ -47,5 +47,5 @@ app.use("/post", postRouter);
 app.use("/cat", catRouter);
 
 app.listen(port, () =>
-  console.log("server created at https://localhost:" + port)
+  console.log("server created at http://localhost:" + port)
 );
