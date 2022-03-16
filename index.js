@@ -37,8 +37,8 @@ app.post("/upload", upload.single("file"), (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("dd");
-  //res.sendFile(path.join(__dirname + "./index.html"));
+  //res.send("dd");
+  res.sendFile(path.join(__dirname + "./index.html"));
 });
 
 app.use("/auth", authRouter);
